@@ -16,6 +16,7 @@
 /vendor/lib(64)?/libSnpeHtpV69Stub\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/rfsa/adsp/libSnpeHtpV69Skel\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libipebpsstriping\.so
+/vendor/lib(64)?/libipebpsstriping170\.so
 
 # Diag
 /data/vendor/modem(/.*)?                                                  u:object_r:vendor_modem_data_file:s0
