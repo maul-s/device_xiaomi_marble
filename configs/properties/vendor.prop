@@ -280,6 +280,9 @@ drm.service.enabled=true
 # Fingerprint
 ro.hardware.fp.sideCap=true
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # RFP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -290,10 +293,10 @@ vendor.gatekeeper.disable_spu=true
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.color_mode=0
 persist.sys.sf.native_mode=258
-debug.cpurend.vsync=false
 debug.sf.hw=0
-debug.egl.hw=0
-debug.sf.auto_latch_unsignaled=true
+debug.sdm.support_writeback=0
+debug.sf.auto_latch_unsignaled=0
+debug.sf.defer_refresh_rate_when_off=1
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_advanced_sf_phase_offset=1
@@ -318,10 +321,12 @@ vendor.gralloc.disable_ubwc=0
 ro.vendor.touchfeature.type=115
 
 # Refresh Rate
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.set_display_power_timer_ms=3000
 ro.surface_flinger.set_idle_timer_ms=500
 ro.surface_flinger.set_touch_timer_ms=1000
-debug.sf.frame_rate_multiple_threshold=60
+debug.sf.frame_rate_multiple_threshold=120
+vendor.display.defer_fps_frame_count?=2
 
 # Haptics
 sys.haptic.motor=linear
@@ -351,15 +356,13 @@ sys.haptic.runin=13
 sys.haptic.intensityforkeyboard=true
 
 # Incremental
-ro.incremental.enable=yes
-
-# HWUI
-ro.hwui.render_ahead=10
+ro.incremental.enable=true
 
 # Media
 debug.c2.use_dmabufheaps=1
 debug.config.media.video.dolby_vision_suports=true
 debug.mdpcomp.logs=0
+ro.mediaserver.64b.enable=true
 debug.stagefright.omx_default_rank=0
 debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
@@ -383,7 +386,8 @@ ro.vendor.se.chip.model=SN110T
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=2.3
-ro.vendor.perf.scroll_opt.heavy_app=2
+ro.vendor.perf.scroll_opt=true
+vendor.perf.framepacing.enable=1
 vendor.power.pasr.enabled=false
 vendor.pasr.activemode.enabled=false
 
@@ -433,15 +437,6 @@ persist.vendor.vcb.enable=false
 ro.vendor.net.enable_dual_wifi=1
 ro.vendor.net.enable_passpoint_r1=1
 wifi.aware.interface=wifi-aware0
-
-# Fling
-ro.min.fling_velocity=160 
-ro.max.fling_velocity=20000
-ro.max.fling_velocity=20000 
-ro.vendor.qti.cgroup_follow.enable=true 
-persist.vendor.qti.inputopts.enable=true 
-persist.vendor.qti.inputopts.movetouchslop=0.6 
-ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 
 # Zygote
 zygote.critical_window.minute=10
