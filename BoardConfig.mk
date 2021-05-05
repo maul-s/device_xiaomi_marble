@@ -104,6 +104,7 @@ BOARD_KERNEL_BASE := 0x00000000
 
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
+    kpti=off \
     swinfo.fingerprint=$(AFTERLIFE_VERSION) \
     mtdoops.fingerprint=$(AFTERLIFE_VERSION)
 
