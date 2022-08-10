@@ -5,9 +5,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package org.lineageos.settings;
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -54,11 +52,17 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // NFC
         NfcCameraService.startService(context);
-
+        
         // AOD
         AodBrightnessService.startService(context);
 
         // Per app refresh rate
         RefreshUtils.startService(context);
+
+        // Override HDR types
+        final IBinder displayToken = SurfaceControl.getInternalDisplayToken();
+        SurfaceControl.overrideHdrTypes(displayToken, new int[]{
+                HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
+                HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
     }
 }
