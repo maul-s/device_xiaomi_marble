@@ -9,6 +9,9 @@ persist.sys.sf.disable_blurs=0
 ro.sf.blurs_are_expensive=0
 ro.surface_flinger.supports_background_blur=0
 
+# Display
+ro.sf.force_hwc_brightness=1
+
 # Radio
 persist.vendor.radio.hidl_dev_service=true
 ro.vendor.radio.5g=3
