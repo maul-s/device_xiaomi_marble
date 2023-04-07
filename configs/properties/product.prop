@@ -12,6 +12,9 @@ ro.surface_flinger.supports_background_blur=0
 # Display
 ro.sf.force_hwc_brightness=1
 
+# Optimize spatializer effect
+audio.spatializer.effect.util_clamp_min=300
+
 # Radio
 persist.vendor.radio.hidl_dev_service=true
 ro.vendor.radio.5g=3
