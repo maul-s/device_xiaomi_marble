@@ -73,6 +73,10 @@ on init
     chown system system /dev/cpuset/audio-app/tasks
     chmod 0664 /dev/cpuset/audio-app/tasks
 
+    # Set boottime stune value
+    write /dev/stune/schedtune.prefer_idle 1
+    write /dev/stune/schedtune.boost 100
+
 on post-fs
 
 on early-boot
@@ -403,6 +407,9 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
+    #Set runtime stune value
+    write /dev/stune/schedtune.prefer_idle 0
+    write /dev/stune/schedtune.boost 0
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
