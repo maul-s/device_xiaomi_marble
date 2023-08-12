@@ -604,3 +604,10 @@ on property:sys.boot_completed=1
     # Restrict permissions to socket file
     # to hide Magisk & co.
     chmod 440 /proc/net/unix
+
+service citsensor-hal-2-0 /odm/bin/hw/vendor.xiaomi.sensor.citsensorservice@2.0-service
+    class late_start
+    user system
+    group system input
+    override
+    task_profiles ServiceCapacityLow
