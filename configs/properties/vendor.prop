@@ -359,6 +359,7 @@ ro.vendor.se.chip.model=SN110T
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=2.3
 vendor.power.pasr.enabled=false
+vendor.perf.framepacing.enable=1
 vendor.pasr.activemode.enabled=false
 
 # QFP
