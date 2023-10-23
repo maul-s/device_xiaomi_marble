@@ -480,8 +480,17 @@ PRODUCT_PACKAGES += \
 
 # Perf
 PRODUCT_PACKAGES += \
+    libpsi.vendor \
+    libtflite
+
+PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.3 \
-    vendor.qti.hardware.perf@2.3.vendor
+    vendor.qti.hardware.perf@2.3.vendor \
+    vendor.qti.hardware.servicetracker@1.2.vendor
+
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
 
 # Configs
 PRODUCT_COPY_FILES += \
@@ -641,6 +650,7 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti-v2 \
+    android.hardware.thermal@2.0 \
     android.hardware.thermal@2.0.vendor
 
 PRODUCT_VENDOR_PROPERTIES += \
