@@ -29,6 +29,7 @@ import org.lineageos.settings.display.ColorService;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.touch.TouchOrientationService;
+import org.lineageos.settings.gestures.GestureUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -72,5 +73,10 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         
         // Touch Orientation Service
         TouchOrientationService.startService(context);
+
+        // Gesture: Double tap FPS
+        if (GestureUtils.isFpDoubleTapEnabled(context)) {
+            GestureUtils.setFingerprintNavigation(true);
+        }
     }
 }
