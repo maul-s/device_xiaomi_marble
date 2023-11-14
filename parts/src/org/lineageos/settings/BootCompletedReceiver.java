@@ -11,12 +11,19 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.util.Log;
+import android.content.SharedPreferences;
+import android.os.SystemProperties;
+import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.camera.NfcCameraService;
+import org.lineageos.settings.dirac.DiracUtils;
+import org.lineageos.settings.doze.AodBrightnessService;
+import org.lineageos.settings.doze.DozeUtils;
+import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.display.ColorService;
 import org.lineageos.settings.camera.NfcCameraService;
-import org.lineageos.settings.dolby.DolbyUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 
@@ -27,22 +34,33 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (!intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) return;
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
-
-        // Thermal Profiles
         ThermalUtils.startService(context);
 
-        DolbyUtils.getInstance(context).onBootCompleted();
+        // Dirac
+         try {
+            DiracUtils.getInstance(context);
+         } catch (Exception e) {
+            Log.d(TAG, "Dirac is not present in system");
+         }
 
-        // Per app refresh rate
-        RefreshUtils.startService(context);
+        // Doze
+        DozeUtils.checkDozeService(context);
+
+        // Pocket
+        PocketService.startService(context);
 
          // DisplayFeature
         ColorService.startService(context);
 
         // NFC
         NfcCameraService.startService(context);
-        
+
+        // AOD
+        AodBrightnessService.startService(context);
+
+        // Per app refresh rate
+        RefreshUtils.startService(context);
     }
 }
