@@ -85,6 +85,7 @@ PRODUCT_PACKAGES += \
     libexthwplugin \
     libhdmiedid \
     libhfp \
+    libhfp_pal \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
