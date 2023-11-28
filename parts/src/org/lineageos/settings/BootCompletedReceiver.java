@@ -22,6 +22,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         ThermalUtils.startService(context);
 
