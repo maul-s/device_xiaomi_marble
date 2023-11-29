@@ -27,7 +27,26 @@
     <!-- If using legacy - please use config_show_min_refresh_rate_switch prop -->
 
     <!-- Whether to show Smooth Display feature in Settings Options -->
-    <bool name="config_show_smooth_display">true</bool>
+    <bool name="config_show_smooth_display">false</bool>
+
+    <!-- Whether to show Maximum refresh rate in display settings -->
+    <bool name="config_show_refresh_rate_controls">true</bool>
+
+    <!-- Whether to show Minimum refresh rate in display settings -->
+    <bool name="config_supports_dynamic_refresh_rate_controls">true</bool>
+
+    <!-- Whether to show call recording audio -->
+    <bool name="call_recording_enabled">true</bool>
+    <integer name="call_recording_audio_source">4</integer>
+
+     <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
+     <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
+    <bool name="config_telephony5gStandalone">true</bool>
+
+    <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
+    <bool name="config_telephony5gNonStandalone">true</bool>
 
     <!-- Whether show refresh rate QS tile -->
     <bool name="config_showRefreshRateQsTile">true</bool>
