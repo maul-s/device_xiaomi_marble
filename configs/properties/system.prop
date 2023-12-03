@@ -87,6 +87,11 @@ ro.telephony.default_network=33,33
 telephony.lteOnCdmaDevice=1
 persist.sys.radio.force_lte_ca=true
 
+# Render
+debug.cpurend.vsync=false
+debug.hwui.renderer=skiagl
+debug.renderengine.backend=skiaglthreaded
+
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
