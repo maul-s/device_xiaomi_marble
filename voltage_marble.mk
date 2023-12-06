@@ -31,5 +31,8 @@ PRODUCT_NAME := voltage_marble
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
+# Nuke AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
 # Gapps
 $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
