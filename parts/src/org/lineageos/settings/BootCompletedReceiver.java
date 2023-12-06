@@ -13,6 +13,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import org.lineageos.settings.camera.NfcCameraService;
+import org.lineageos.settings.dirac.DiracUtils;
+import org.lineageos.settings.display.ColorService;
+import org.lineageos.settings.dolby.DolbyUtils;
+import org.lineageos.settings.doze.AodBrightnessService;
+import org.lineageos.settings.doze.DozeUtils;
+import org.lineageos.settings.doze.PocketService;
+import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -30,5 +38,23 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Dolby Atmos
         DolbyUtils.getInstance(context);
+
+        // DisplayFeature
+        ColorService.startService(context);
+
+        // NFC
+        NfcCameraService.startService(context);
+
+        // Pocket
+        PocketService.startService(context);
+
+        // AOD
+        AodBrightnessService.startService(context);
+
+        // Doze
+        // DozeUtils.checkDozeService(context);
+
+        // Refresh Rate
+        RefreshUtils.initialize(context);
     }
 }

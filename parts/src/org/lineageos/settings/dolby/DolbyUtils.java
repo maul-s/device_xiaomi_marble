@@ -22,6 +22,8 @@ import android.util.Log;
 import org.lineageos.settings.R;
 import org.lineageos.settings.dolby.DolbyConstants.DsParam;
 
+import org.lineageos.settings.R;
+
 import java.util.Arrays;
 import java.util.List;
 
