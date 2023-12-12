@@ -2029,6 +2029,7 @@ vendor/lib64/libqcodec2_mockqc2filter.so
 vendor/lib64/libqcodec2_platform.so
 vendor/lib64/libqcodec2_utils.so
 vendor/lib64/libqcodec2_v4l2codec.so
+vendor/lib64/libstagefrighthw.so
 vendor/lib64/libstagefright_softomx.so
 vendor/lib64/libvideotxr.so
 vendor/lib64/qti.video.utils.videobufferlayout.so
@@ -2138,6 +2139,8 @@ vendor/lib/libdsd2pcm.so
 vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
 vendor/lib64/libFlacSwDec.so
+vendor/lib64/libOmxCore.so
+vendor/lib64/libOmxCore.so
 vendor/lib64/libdsd2pcm.so
 
 # Perf configs
@@ -2149,6 +2152,8 @@ vendor/etc/perf/thermal-boost.conf
 vendor/etc/perf/thermalbreakboostconfig.xml
 
 # Perf (system) - from LA.QSSI.14.0.r1
+system_ext/app/PerformanceMode/PerformanceMode.apk|353349549bf1c86feb12972d152750eb65d07e6d
+system_ext/app/PowerSaveMode/PowerSaveMode.apk|acf99f8780f4aca76f3d026b80f67bcfe0a3d0c7
 system_ext/bin/perfservice|ee3aa094acc3a27b10a52a8c985edd8535d235a2
 system_ext/bin/qspmsvc|aa040e405067e842fdd3901b395fba0a996641ab
 system_ext/etc/init/perfservice.rc|7d4732437d2204e06ea09db85f169fef693086e8
