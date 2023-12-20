@@ -33,6 +33,11 @@ persist.debug.ftrace_events_disable=Yes
 
 # Disable Skia tracing by default
 debug.hwui.skia_atrace_enabled=false
+renderthread.skia.reduceopstasksplitting=true
+
+# Display
+hwui.disable_vsync=true
+hwui.render_dirty_regions=false
 
 # Display
 hwui.disable_vsync=true
@@ -44,10 +49,17 @@ ro.feas.enable=true
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
-# Graphics
-debug.hwui.renderer=opengl
-renderthread.skia.reduceopstasksplitting=true 
-debug.renderengine.backend=skiaglthreaded
+# Improve global touch screen response
+debug.performance.tuning=1
+video.accelerate.hw=1
+view.touch_slop=1
+view.scroll_friction=0
+
+# Improve sliding response
+windowsmgr.max_events_per_sec=800
+view.scroll_friction=0
+ro.min_pointer_dur=0
+ro.min.pointer.dur=0
 
 # Improve global touch screen response
 debug.performance.tuning=1
