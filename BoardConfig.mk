@@ -84,7 +84,7 @@ TARGET_USES_HWC2 := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
-TARGET_SCREEN_DENSITY := 440
+TARGET_SCREEN_DENSITY := 420
 
 # Dolby Vision
 SOONG_CONFIG_NAMESPACES += dolby_vision
@@ -114,8 +114,8 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
-    swinfo.fingerprint=$(LINEAGE_VERSION) \
-    mtdoops.fingerprint=$(LINEAGE_VERSION)
+    swinfo.fingerprint=$(VOLTAGE_VERSION) \
+    mtdoops.fingerprint=$(VOLTAGE_VERSION)
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -186,6 +186,12 @@ BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9659482112
 BOARD_PARTITION_LIST := $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 $(foreach p, $(BOARD_PARTITION_LIST), $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4))
 
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_VENDOR_DLKMIMAGE_PARTITION_RESERVED_SIZE := 67108864
+
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
@@ -237,8 +243,7 @@ DEVICE_MANIFEST_UKEE_FILES := \
     $(DEVICE_PATH)/configs/vintf/manifest_xiaomi.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/vendor_framework_compatibility_matrix.xml \
-    $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml
 ODM_MANIFEST_SKUS += marble
 ODM_MANIFEST_MARBLE_FILES := $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 
