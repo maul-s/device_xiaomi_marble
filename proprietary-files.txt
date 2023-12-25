@@ -1572,6 +1572,8 @@ vendor/lib64/c2.dolby.hevc.sec.dec.so
 vendor/lib64/c2.dolby.store.so
 vendor/lib64/libdolbyottcameracontrol.so
 vendor/lib64/libdolbyvision.so
+vendor/lib/libcodec2_hidl@1.0.so:vendor/lib/libcodec2_hidl@1.0.stock.so
+vendor/lib/libcodec2_vndk.so:vendor/lib/libcodec2_vndk.stock.so
 
 # Display (SDM) - from Pong qssi-user 14 UP1A.231005.007 2310072102 release-keys
 vendor/lib/libsdedrm.so|932f321d4168e4fb91b449899ff1544710bf49c1
