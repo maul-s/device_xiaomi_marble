@@ -19,8 +19,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Call the proprietary setup.
 $(call inherit-product, vendor/xiaomi/marble/marble-vendor.mk)
 
-# Call the proprietary setup.
-$(call inherit-product, vendor/xiaomi/marble/marble-vendor.mk)
+# Call the BCR setup
+$(call inherit-product-if-exists, vendor/bcr/bcr.mk)
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
