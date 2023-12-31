@@ -44,7 +44,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         Log.i(TAG, "Boot completed");
 
         // Dolby Atmos
-        DolbyUtils.getInstance(context);
+        DolbyUtils.getInstance(context).onBootCompleted();;
 
         // Doze
         DozeUtils.checkDozeService(context);
