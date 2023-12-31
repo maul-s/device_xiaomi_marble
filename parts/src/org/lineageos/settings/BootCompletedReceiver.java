@@ -42,7 +42,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         Log.i(TAG, "Boot completed");
 
         // Dolby Atmos
-        DolbyUtils.getInstance(context);
+        DolbyUtils.getInstance(context).onBootCompleted();;
 
         // DisplayFeature
         ColorService.startService(context);
