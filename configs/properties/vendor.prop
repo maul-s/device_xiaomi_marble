@@ -226,7 +226,6 @@ ro.vendor.display.touch.idle.enable=true
 ro.vendor.display.idle_default_fps=60
 ro.vendor.display.mi_calib.enable=true
 ro.vendor.display.nature_mode.enable=true
-ro.surface_flinger.enable_frame_rate_override=true
 ro.vendor.display.ai_disp.enable=true
 ro.vendor.display.default_fps=60
 ro.vendor.display.type=oled
