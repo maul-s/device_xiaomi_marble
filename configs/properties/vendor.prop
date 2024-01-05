@@ -284,6 +284,7 @@ persist.sys.sf.native_mode=258
 debug.cpurend.vsync=false
 debug.sf.hw=0
 debug.hwui.renderer=opengl
+debug.renderengine.backend=gles
 debug.sdm.support_writeback=0
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=0
