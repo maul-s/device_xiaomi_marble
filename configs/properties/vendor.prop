@@ -203,7 +203,6 @@ vendor.display.disable_sdr_histogram=1
 vendor.display.enable_hdr10_gpu_target=1
 vendor.display.disable_offline_rotator=1
 vendor.display.enable_async_powermode=0
-vendor.display.disable_scaler=0
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.comp_mask=0
