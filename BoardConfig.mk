@@ -115,8 +115,8 @@ BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
-    swinfo.fingerprint=$(VOLTAGE_VERSION) \
-    mtdoops.fingerprint=$(VOLTAGE_VERSION)
+    swinfo.fingerprint=$(MIST_VERSION) \
+    mtdoops.fingerprint=$(MIST_VERSION)
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -251,7 +251,8 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
 DEVICE_MANIFEST_SKUS := ukee
 DEVICE_MANIFEST_UKEE_FILES := \
     $(DEVICE_PATH)/configs/vintf/manifest_ukee.xml \
-    $(DEVICE_PATH)/configs/vintf/manifest_xiaomi.xml
+    $(DEVICE_PATH)/configs/vintf/manifest_xiaomi.xml \
+    vendor/mist/config/device_framework_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/vendor_framework_compatibility_matrix.xml \
     $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml
