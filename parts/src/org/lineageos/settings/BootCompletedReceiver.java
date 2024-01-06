@@ -52,7 +52,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         AodBrightnessService.startService(context);
 
         // Doze
-        // DozeUtils.checkDozeService(context);
+        DozeUtils.checkDozeService(context);
 
         // Refresh Rate
         RefreshUtils.initialize(context);
