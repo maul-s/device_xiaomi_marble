@@ -321,9 +321,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
-# Lineage Health
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.health-service.default
 
 # Media
 PRODUCT_PACKAGES += \
@@ -426,6 +423,10 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlayGlobal \
     SettingsProviderOverlayIndia \
     SettingsProviderOverlayChina
+
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
 
 # Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
