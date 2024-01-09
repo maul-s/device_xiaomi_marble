@@ -133,8 +133,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    </hal>
-        <hal format="aidl" optional="true">
+    <hal format="aidl" optional="true">
         <name>vendor.lineage.health</name>
         <version>1</version>
         <interface>
