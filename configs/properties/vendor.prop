@@ -345,6 +345,9 @@ sys.haptic.intensityforkeyboard=true
 # Incremental
 ro.incremental.enable=yes
 
+# HWUI
+ro.hwui.render_ahead=10
+
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true
