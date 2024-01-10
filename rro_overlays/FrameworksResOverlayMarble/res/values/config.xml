@@ -11,13 +11,13 @@
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">15</integer>
-    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0015</item>
+    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.000854597</item>
 
     <!-- Minimum screen brightness setting allowed by power manager.
          -2 is invalid so setting will resort to int value specified above.
          Set this to 0.0 to allow screen to go to minimal brightness.
          The user is forbidden from setting the brightness below this level. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0015</item>
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.000854597</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
          -2 is invalid so setting will resort to int value specified above.
@@ -730,4 +730,8 @@
 
     <!-- Whether or not to enable the lock screen entry point for the QR code scanner. -->
     <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
+
+    <!-- The default minimum refresh rate for a given device. Devices with higher refresh rates
+         may want to configure this to avoid jank during refresh rate switching -->
+    <integer name="config_defaultMinimumRefreshRate">60</integer>
 </resources>
