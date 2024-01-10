@@ -105,6 +105,9 @@ PRODUCT_COPY_FILES += \
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config/config.fs
 
+# HWUI
+HWUI_COMPILE_FOR_PERF := true
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_marble
 TARGET_RECOVERY_DEVICE_MODULES ?= init_xiaomi_marble
