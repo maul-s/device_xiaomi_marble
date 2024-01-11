@@ -175,8 +175,8 @@ on boot
     chmod 0666 /sys/class/qcom-battery/input_suspend
 
     # Allow system to modify exposure adjustment state
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable
 
     # High Brightness mode
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
