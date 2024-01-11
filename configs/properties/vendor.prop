@@ -108,10 +108,6 @@ ro.vendor.audio.ce.compensation.need=true
 ro.vendor.audio.ce.compensation.value=5
 ro.audio.usb.period_us=20375
 af.resampler.quality=7
-ro.audio.resampler.psd.stopband=132
-ro.audio.resampler.psd.halflength=960
-ro.audio.resampler.psd.cutoff_percent=98
-ro.audio.resampler.psd.tbwcheat=0
 
 # Audio feature
 vendor.audio.feature.a2dp_offload.enable=true
