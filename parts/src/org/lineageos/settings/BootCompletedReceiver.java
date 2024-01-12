@@ -26,6 +26,7 @@ import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
+import org.lineageos.settings.touch.HighTouchPollingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -48,6 +49,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // NFC
         NfcCameraService.startService(context);
+        HighTouchPollingService.startService(context);
 
         // Pocket
         PocketService.startService(context);

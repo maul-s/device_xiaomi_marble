@@ -39,6 +39,9 @@
     <!-- The CPU temperature divider, if needed -->
     <integer name="config_cpuTempDivider" translatable="false">1000</integer>
 
+    <!-- Whether device supports increased touch sensitvity -->
+    <bool name="config_supportTouchPollingMode">true</bool>
+
     <!-- Battery Health -->
     <string name="config_batteryCalculatedCapacity">/sys/class/power_supply/battery/charge_full</string>
     <string name="config_batteryDesignCapacity">/sys/class/power_supply/battery/charge_full_design</string>
