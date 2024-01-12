@@ -35,6 +35,7 @@ import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.touch.TouchOrientationService;
+import org.lineageos.settings.touch.HighTouchPollingService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -80,5 +81,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         
         // Touch Orientation Service
         TouchOrientationService.startService(context);
+
+        // High Touch Polling Rate
+        HighTouchPollingService.startService(context);
     }
 }
