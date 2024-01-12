@@ -180,5 +180,10 @@
             android:permission="TouchOrientationService">
         </service>
 
+        <service
+            android:name=".touch.HighTouchPollingService"
+            android:permission="HighTouchPollingService">
+        </service>
+
     </application>
 </manifest>
