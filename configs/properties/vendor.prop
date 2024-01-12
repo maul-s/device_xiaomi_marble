@@ -296,7 +296,6 @@ debug.hwui.renderer=skiagl
 debug.renderengine.backend=skiaglthreaded
 persist.sys.sf.native_mode=2
 debug.sf.hw=0
-debug.hwui.renderer=opengl
 debug.sdm.support_writeback=0
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=0
