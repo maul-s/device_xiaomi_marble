@@ -54,8 +54,8 @@ on property:vendor.post_boot.parsed=1
     write /proc/irq/208/smp_affinity_list 1
     write /proc/irq/253/smp_affinity_list 2
 
-     # Setup foreground cpuset for display composer.
-    write /dev/cpuset/foreground/cpus 0-6
+    # Setup foreground cpuset for display composer.
+    write /dev/cpuset/foreground/cpus 0-7
 
 service vendor.qti.hardware.display.allocator /vendor/bin/hw/vendor.qti.hardware.display.allocator-service
     override

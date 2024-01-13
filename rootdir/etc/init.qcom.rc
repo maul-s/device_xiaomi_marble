@@ -411,6 +411,9 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
+    # Restrict permissions to socket file 
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -757,6 +760,7 @@ service vendor.LKCore-rel /vendor/bin/LKCore
     group system log diag
 
 on charger
+    setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
@@ -800,6 +804,10 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
     disabled
     oneshot
     keycodes 114 115 116
+
+#Set GPU Opengles version
+on property:vendor.opengles.version=*
+    setprop ro.opengles.version ${vendor.opengles.version}
 
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*
