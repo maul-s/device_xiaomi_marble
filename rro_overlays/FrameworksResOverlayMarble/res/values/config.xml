@@ -44,10 +44,10 @@
     <integer name="config_lightSensorWarmupTime">200</integer>
 
     <!-- Fast brightness animation ramp rate in brightness units per second -->
-    <integer translatable="false" name="config_brightness_ramp_rate_fast">4932</integer>
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">307</integer>
 
     <!-- Slow brightness animation ramp rate in brightness units per second -->
-    <integer translatable="false" name="config_brightness_ramp_rate_slow">3946</integer>
+    <integer translatable="false" name="config_brightness_ramp_rate_slow">246</integer>
 
 
     <!-- The maximum range of gamma adjustment possible using the screen
@@ -402,8 +402,8 @@
          brightness modes but only the maximum brightness value obtainable in a sustainable manner.
          This array should be equal in size to config_screenBrightnessBacklight -->
     <array name="config_screenBrightnessNits">
-        <item>2</item>
-        <item>1000</item>
+        <item>2.0</item>
+        <item>1000.0</item>
     </array>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
@@ -750,10 +750,4 @@
     <!-- The default minimum refresh rate for a given device. Devices with higher refresh rates
          may want to configure this to avoid jank during refresh rate switching -->
     <integer name="config_defaultMinimumRefreshRate">60</integer>
-
-    <!-- Should the pinner service pin the Camera application? -->
-    <bool name="config_pinnerCameraApp">false</bool>
-
-    <!-- Should the pinner service pin the Home application? -->
-    <bool name="config_pinnerHomeApp">false</bool>
 </resources>
