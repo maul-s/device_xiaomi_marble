@@ -71,6 +71,9 @@ on early-init
     export MEMTAG_OPTIONS off
     write /dev/memcg/camera/provider/memory.soft_limit_in_bytes 36818038505472
 
+    # Start audio adsp rpc daemon at early init stage
+    start vendor.audioadsprpcd_audiopd
+
 on init
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -190,8 +193,11 @@ on post-fs-data
 on early-boot
     # Enable WLAN cold boot calibration
     write /sys/kernel/cnss/fs_ready 1
-    # Enable WLAN SSR recovery
-    write /sys/kernel/cnss/recovery 1
+    # SSR Setup
+    write /sys/class/remoteproc/remoteproc0/recovery enabled
+    write /sys/class/remoteproc/remoteproc1/recovery enabled
+    write /sys/class/remoteproc/remoteproc2/recovery enabled
+    write /sys/class/remoteproc/remoteproc3/recovery enabled
     start vendor.sensors
     verity_update_state
 
@@ -208,22 +214,8 @@ on boot
     chown system system /sys/class/thermal/thermal_message/balance_mode
     chmod 0664 /sys/class/thermal/thermal_message/flash_state
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
-
     chown system system /sys/module/perf_helper/mimd/mimdtrigger
     write /dev/cpuset/audio-app/cpus 0-7
-
-    # Dc Dimming
-    chown system system /sys/class/drm/card0-DSI-1/disp_param
-    chmod 0660 /sys/class/drm/card0-DSI-1/disp_param
-
-    # Set anti-flicker mode permissions
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
-
-    # Set high brightness mode permissions
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
-
     # Add a cpuset for the camera daemon
     # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -244,9 +236,6 @@ on boot
     chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
     #USB controller configuration
     setprop vendor.usb.controller a600000.dwc3
-
-    # default country code
-    setprop ro.boot.wificountrycode 00
 
     # game plaid mode
     chown system system  /sys/devices/virtual/gpu_plaid/plaid/game_data
@@ -306,6 +295,7 @@ on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     wait /sys/class/udc/${sys.usb.controller}
+    setprop sys.usb.configfs 1
     write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled 0
     write /sys/kernel/cnss/charger_mode 1
     write /sys/kernel/cnss/charger_mode 1
@@ -610,7 +600,5 @@ on property:sys.volume.stream.music.device.bluetooth=*
 on property:sys.volume.stream.bluetoothsco=*
     setprop vendor.volume.stream.bluetoothsco ${sys.volume.stream.bluetoothsco}
 
-on property:sys.boot_completed=1
-    # Restrict permissions to socket file
-    # to hide Magisk & co.
-    chmod 440 /proc/net/unix
+# Enable suspend to RAM
+    write /sys/power/mem_sleep "deep"
