@@ -57,6 +57,9 @@ on post-fs-data
     # qrtr-lookup
     mkdir /data/vendor/qrtr 0775 system system
 
+    # Disable doze brightness handling
+    write /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness -1
+
 service citsensor-hal-2-0 /vendor/bin/hw/vendor.xiaomi.sensor.citsensorservice@2.0-service
     class late_start
     user system

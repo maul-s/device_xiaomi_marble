@@ -194,6 +194,11 @@ persist.sys.miui.camera.version=2.7
 persist.sys.miui.camera.boost.killAdj_threshold=100
 
 # Display
+debug.cpurend.vsync=false
+ro.hwui.render_ahead=30
+ro.vendor.perf.scroll_opt=true
+debug.hwui.skia_atrace_enabled=false
+debug.sf.enable_transaction_tracing=false
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.enable_early_wakeup=1
 vendor.display.enable_async_vds_creation=0
@@ -233,7 +238,7 @@ ro.vendor.display.type=oled
 ro.vendor.xiaomi.bl.poll=true
 ro.vendor.whitepoint_calibration_enable=false
 ro.vendor.histogram.enable=true
-ro.vendor.cabc.enable=fasle
+ro.vendor.cabc.enable=false
 ro.vendor.bcbc.enable=true
 ro.vendor.dfps.enable=false
 ro.vendor.fps.switch.default=true
@@ -247,6 +252,7 @@ ro.vendor.thermal.dimming.enable=true
 ro.vendor.fps.switch.thermal=true
 ro.vendor.mi_sf.ultimate.perf.support=true
 ro.vendor.mi_sf.skip_90hz_forVrrVote=true
+ro.sf.force_hwc_brightness=1
 persist.vendor.dc_backlight.enable=false
 persist.vendor.dc_backlight.threshold=0
 
@@ -271,6 +277,9 @@ drm.service.enabled=true
 # Fingerprint
 ro.hardware.fp.sideCap=true
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # RFP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -280,9 +289,10 @@ vendor.gatekeeper.disable_spu=true
 # Graphics
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.color_mode=0
-persist.sys.sf.native_mode=258
+persist.sys.sf.native_mode=2
 debug.cpurend.vsync=false
 debug.sf.hw=0
+debug.egl.hw=0
 debug.hwui.renderer=opengl
 debug.renderengine.backend=gles
 debug.sdm.support_writeback=0
@@ -354,16 +364,10 @@ persist.sys.lmkd.double_watermark.enable=true
 persist.sys.lmkd.extend_reclaim.enable=true
 
 # Media
-media.aac_51_output_enabled=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-http=true
-media.stagefright.enable-player=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-scan=true
 debug.c2.use_dmabufheaps=1
 debug.stagefright.omx_default_rank=0
 debug.stagefright.c2inputsurface=-1
+ro.mediaserver.64b.enable=true
 debug.stagefright.ccodec=4
 persist.mm.enable.prefetch=true
 vendor.mm.enable.qcom_parser=16777215
@@ -385,7 +389,6 @@ ro.vendor.se.chip.model=SN110T
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=2.3
-ro.vendor.perf.scroll_opt=1
 ro.vendor.perf.scroll_opt.heavy_app=2
 vendor.power.pasr.enabled=false
 vendor.pasr.activemode.enabled=true
@@ -438,15 +441,6 @@ ro.vendor.net.enable_dual_wifi=1
 ro.vendor.net.enable_passpoint_r1=1
 wifi.aware.interface=wifi-aware0
 
-# Fling
-ro.min.fling_velocity=160 
-ro.max.fling_velocity=20000
-ro.max.fling_velocity=20000 
-ro.vendor.qti.cgroup_follow.enable=true 
-persist.vendor.qti.inputopts.enable=true 
-persist.vendor.qti.inputopts.movetouchslop=0.6 
-ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
-
 # Zygote
 zygote.critical_window.minute=10
 
@@ -466,6 +460,3 @@ TapSlop=1px
 
 # Telephony
 persist.vendor.radio.redir_party_num=0
-
-# Multi-Gen LRU
-persist.device_config.mglru_native.lru_gen_config=core
