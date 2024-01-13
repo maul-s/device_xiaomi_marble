@@ -60,7 +60,7 @@ echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/task_thres
 echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/nr_prev_assist_thresh
 
 # Disable Core control on silver
-echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
+# echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
 
 # Setting b.L scheduler parameters
 echo 95 95 > /proc/sys/walt/sched_upmigrate
@@ -76,15 +76,20 @@ echo 5000000 5000000 5000000 5000000 5000000 5000000 5000000 2000000 > /proc/sys
 echo 255 > /proc/sys/walt/sched_util_busy_hysteresis_enable_cpus
 echo 15 15 15 15 15 15 15 15 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
 
+# XM power profiling
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/target_load_thresh
+echo 4 > /sys/devices/system/cpu/cpufreq/policy0/walt/target_load_shift
+echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
+
 # set the threshold for low latency task boost feature which prioritize
 # binder activity tasks
 echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
 # cpuset parameters
-echo 0-1 > /dev/cpuset/background/cpus
-echo 0-3 > /dev/cpuset/restricted/cpus
-echo 0-3 > /dev/cpuset/system-background/cpus
-echo 0-6 > /dev/cpuset/foreground/cpus
+echo 0-3     > /dev/cpuset/background/cpus
+echo 0-3     > /dev/cpuset/system-background/cpus
+echo 0-7     > /dev/cpuset/foreground/cpus
+echo 0-7     > /dev/cpuset/top-app/cpus
 
 # Turn off scheduler boost at the end
 echo 0 > /proc/sys/walt/sched_boost
@@ -94,8 +99,9 @@ echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
 
 # configure governor settings for silver cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-echo 10000 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
-echo 500 > /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
+echo 800000 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 if [ $rev == "1.0" ]; then
 	echo 1190400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 else
@@ -106,8 +112,9 @@ echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 
 # configure governor settings for gold cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-echo 15000 > /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
-echo 500 > /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
+echo 600000 > /sys/devices/system/cpu/cpufreq/policy4/walt/rtg_boost_freq
 if [ $rev == "1.0" ]; then
 	echo 1497600 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 else

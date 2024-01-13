@@ -30,8 +30,8 @@ import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.xiaomi.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
 
   # create symlink for vendor mount points
     symlink /vendor/firmware_mnt /firmware
@@ -74,16 +74,7 @@ on init
     chown system system /dev/cpuset/audio-app/tasks
     chmod 0664 /dev/cpuset/audio-app/tasks
 
-    # Set boottime stune value
-    write /dev/stune/schedtune.prefer_idle 1
-    write /dev/stune/schedtune.boost 100
-
 on post-fs
-
-    # set default schedTune value for foreground/top-app
-    write /dev/stune/foreground/schedtune.prefer_idle 1
-    write /dev/stune/top-app/schedtune.boost 10
-    write /dev/stune/top-app/schedtune.prefer_idle 1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -420,13 +411,9 @@ on property:sys.boot_completed=1
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
-    #Set runtime stune value
-    write /dev/stune/schedtune.prefer_idle 0
-    write /dev/stune/schedtune.boost 0
-
-    #Enable idle state listener
-    write /sys/class/drm/card0/device/idle_encoder_mask 1
-    write /sys/class/drm/card0/device/idle_timeout_ms 100
+    # Restrict permissions to socket file 
+    # to hide Magisk & co.
+    chmod 440 /proc/net/unix
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
@@ -438,9 +425,6 @@ on property:vendor.radio.atfwd.start=false
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
     write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
-
-# Enable suspend to RAM
-write /sys/power/mem_sleep "deep"
 
 on property:vendor.media.target.version=*
     setprop vendor.sys.media.target.version ${vendor.media.target.version}
@@ -759,7 +743,24 @@ service vendor.msm_irqbl_sdm630 /vendor/bin/msm_irqbalance -f /system/vendor/etc
     group root
     disabled
 
+# service for USERDEBUG
+service vendor.LKCore-dbg /vendor/bin/LKCore
+    class late_start
+    oneshot
+    disabled
+    user root
+    group root system log diag net_raw
+
+# service for USER
+service vendor.LKCore-rel /vendor/bin/LKCore
+    class late_start
+    oneshot
+    disabled
+    user system
+    group system log diag
+
 on charger
+    setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness
@@ -803,6 +804,10 @@ service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.andro
     disabled
     oneshot
     keycodes 114 115 116
+
+#Set GPU Opengles version
+on property:vendor.opengles.version=*
+    setprop ro.opengles.version ${vendor.opengles.version}
 
 #Set gpu available frequencies property
 on property:vendor.gpu.available_frequencies=*

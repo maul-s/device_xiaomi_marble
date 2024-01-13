@@ -206,6 +206,11 @@ persist.sys.miui.camera.version=2.7
 persist.sys.miui.camera.boost.killAdj_threshold=100
 
 # Display
+debug.cpurend.vsync=false
+ro.hwui.render_ahead=30
+ro.vendor.perf.scroll_opt=true
+debug.hwui.skia_atrace_enabled=false
+debug.sf.enable_transaction_tracing=false
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.enable_early_wakeup=1
 vendor.display.enable_async_vds_creation=0
@@ -222,12 +227,11 @@ vendor.display.comp_mask=0
 vendor.display.enable_optimize_refresh=0
 vendor.display.enable_dpps_dynamic_fps=1
 vendor.display.disable_stc_dimming=1
-vendor.display.idle_time=1100
+vendor.display.idle_time=0
 vendor.display.enable_fp_monitor=1
 vendor.display.enable_hist_intr=1
 vendor.display.disable_3d_adaptive_tm=0
 vendor.display.use_layer_ext=0
-vendor.display.disable_rotator_downscale=1
 vendor.display.qdcm.disable_factory_mode=1
 vendor.display.qdcm.mode_combine=1
 
@@ -245,7 +249,7 @@ ro.vendor.display.type=oled
 ro.vendor.xiaomi.bl.poll=true
 ro.vendor.whitepoint_calibration_enable=false
 ro.vendor.histogram.enable=true
-ro.vendor.cabc.enable=fasle
+ro.vendor.cabc.enable=false
 ro.vendor.bcbc.enable=true
 ro.vendor.dfps.enable=false
 ro.vendor.fps.switch.default=true
@@ -259,6 +263,7 @@ ro.vendor.thermal.dimming.enable=true
 ro.vendor.fps.switch.thermal=true
 ro.vendor.mi_sf.ultimate.perf.support=true
 ro.vendor.mi_sf.skip_90hz_forVrrVote=true
+ro.sf.force_hwc_brightness=1
 persist.vendor.dc_backlight.enable=false
 persist.vendor.dc_backlight.threshold=0
 
@@ -283,6 +288,9 @@ drm.service.enabled=true
 # Fingerprint
 ro.hardware.fp.sideCap=true
 
+# FS-verity
+ro.apk_verity.mode=2
+
 # RFP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -296,13 +304,14 @@ debug.hwui.renderer=opengl
 debug.renderengine.backend=gles
 persist.sys.sf.native_mode=2
 debug.sf.hw=0
+debug.egl.hw=0
 debug.sdm.support_writeback=0
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=0
 debug.sf.defer_refresh_rate_when_off=1
-debug.sf.enable_egl_image_tracker=1
 debug.sf.disable_client_composition_cache=1
 debug.sf.disable_gl_backpressure=1
+debug.sf.enable_gl_backpressure=1
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
@@ -326,7 +335,7 @@ vendor.gralloc.disable_ubwc=0
 ro.surface_flinger.set_display_power_timer_ms=1000
 ro.surface_flinger.set_idle_timer_ms=500
 ro.surface_flinger.set_touch_timer_ms=100
-debug.sf.frame_rate_multiple_threshold=60
+debug.sf.frame_rate_multiple_threshold=120
 
 # Haptics
 sys.haptic.motor=linear
@@ -358,20 +367,11 @@ sys.haptic.intensityforkeyboard=true
 # Incremental
 ro.incremental.enable=yes
 
-# HWUI
-ro.hwui.render_ahead=10
-
 # Media
-media.aac_51_output_enabled=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-http=true
-media.stagefright.enable-player=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-scan=true
 debug.c2.use_dmabufheaps=1
 debug.stagefright.omx_default_rank=0
 debug.stagefright.c2inputsurface=-1
+ro.mediaserver.64b.enable=true
 debug.stagefright.ccodec=4
 persist.mm.enable.prefetch=true
 vendor.media.omx=0
@@ -454,15 +454,6 @@ persist.vendor.qti.telephony.vt_cam_interface=2
 ro.vendor.net.enable_dual_wifi=1
 ro.vendor.net.enable_passpoint_r1=1
 wifi.aware.interface=wifi-aware0
-
-# Fling
-ro.min.fling_velocity=160 
-ro.max.fling_velocity=20000
-ro.max.fling_velocity=20000 
-ro.vendor.qti.cgroup_follow.enable=true 
-persist.vendor.qti.inputopts.enable=true 
-persist.vendor.qti.inputopts.movetouchslop=0.6 
-ro.qcom.adreno.qgl.ShaderStorageImageExtendedFormats=0
 
 # Zygote
 zygote.critical_window.minute=10
