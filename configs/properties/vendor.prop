@@ -283,7 +283,6 @@ persist.sys.sf.color_mode=0
 persist.sys.sf.native_mode=258
 debug.cpurend.vsync=false
 debug.sf.hw=0
-debug.hwui.renderer=opengl
 debug.sdm.support_writeback=0
 debug.sf.latch_unsignaled=1
 debug.sf.auto_latch_unsignaled=0
@@ -311,8 +310,8 @@ vendor.gralloc.disable_ubwc=0
 
 # Refresh Rate
 ro.surface_flinger.set_display_power_timer_ms=1000
-ro.surface_flinger.set_idle_timer_ms=80
-ro.surface_flinger.set_touch_timer_ms=200
+ro.surface_flinger.set_idle_timer_ms=500
+ro.surface_flinger.set_touch_timer_ms=100
 debug.sf.frame_rate_multiple_threshold=120
 
 # Haptics
@@ -385,8 +384,6 @@ ro.vendor.se.chip.model=SN110T
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=2.3
-ro.vendor.perf.scroll_opt=1
-ro.vendor.perf.scroll_opt.heavy_app=2
 vendor.power.pasr.enabled=false
 vendor.pasr.activemode.enabled=true
 vendor.perf.framepacing.enable=1
