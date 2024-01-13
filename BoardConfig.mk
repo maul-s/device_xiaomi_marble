@@ -120,8 +120,8 @@ BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
     kpti=off \
-    swinfo.fingerprint=$(APOLLO_VERSION) \
-    mtdoops.fingerprint=$(APOLLO_VERSION)
+    swinfo.fingerprint=$(VOLTAGE_VERSION) \
+    mtdoops.fingerprint=$(VOLTAGE_VERSION)
 
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
@@ -202,6 +202,12 @@ $(foreach p, $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST)), \
 BOARD_PARTITION_LIST := $(call to-upper, $(BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST))
 $(foreach p, $(BOARD_PARTITION_LIST), $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4))
 
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 1073741824
+BOARD_VENDOR_DLKMIMAGE_PARTITION_RESERVED_SIZE := 67108864
+
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
@@ -257,8 +263,7 @@ DEVICE_MANIFEST_UKEE_FILES := \
     $(DEVICE_PATH)/configs/vintf/manifest_xiaomi.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/vendor_framework_compatibility_matrix.xml \
-    $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml \
-    vendor/apollo/config/device_framework_matrix.xml
+    $(DEVICE_PATH)/configs/vintf/xiaomi_framework_compatibility_matrix.xml
 ODM_MANIFEST_SKUS += marble
 ODM_MANIFEST_MARBLE_FILES := $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 
