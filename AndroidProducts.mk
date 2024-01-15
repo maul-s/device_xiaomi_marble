@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/awaken_marble.mk
+    $(LOCAL_DIR)/apollo_marble.mk
 
 COMMON_LUNCH_CHOICES := \
-    awaken_marble-eng \
-    awaken_marble-userdebug \
-    awaken_marble-user
+    apollo_marble-eng \
+    apollo_marble-userdebug \
+    apollo_marble-user
