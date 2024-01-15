@@ -16,6 +16,8 @@ import android.util.Log;
 import android.content.SharedPreferences;
 import android.os.SystemProperties;
 import androidx.preference.PreferenceManager;
+import android.view.Display.HdrCapabilities;
+import android.view.Display;
 
 import org.lineageos.settings.camera.NfcCameraService;
 import org.lineageos.settings.dolby.DolbyUtils;
@@ -60,5 +62,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Per app refresh rate
         RefreshUtils.startService(context);
+
+        // Override HDR types
+        final IBinder displayToken = SurfaceControl.getInternalDisplayToken();
+        SurfaceControl.overrideHdrTypes(displayToken, new int[]{
+                HdrCapabilities.HDR_TYPE_DOLBY_VISION, HdrCapabilities.HDR_TYPE_HDR10,
+                HdrCapabilities.HDR_TYPE_HLG, HdrCapabilities.HDR_TYPE_HDR10_PLUS});
     }
 }
