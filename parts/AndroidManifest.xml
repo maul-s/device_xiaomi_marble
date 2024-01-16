@@ -137,7 +137,6 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
-        -->
 
         <service
             android:name=".display.ColorService"
@@ -200,7 +199,6 @@
             </intent-filter>
         </service>
 
-        <!--
         <service
             android:name=".doze.DozeService"
             android:exported="true"
@@ -216,7 +214,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        -->
 
         <service
             android:name=".refreshrate.RefreshService"
