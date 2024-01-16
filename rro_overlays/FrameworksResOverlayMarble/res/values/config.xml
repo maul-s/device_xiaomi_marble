@@ -44,10 +44,10 @@
     <integer name="config_lightSensorWarmupTime">200</integer>
 
     <!-- Fast brightness animation ramp rate in brightness units per second -->
-    <integer translatable="false" name="config_brightness_ramp_rate_fast">4932</integer>
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">307</integer>
 
     <!-- Slow brightness animation ramp rate in brightness units per second -->
-    <integer translatable="false" name="config_brightness_ramp_rate_slow">3946</integer>
+    <integer translatable="false" name="config_brightness_ramp_rate_slow">246</integer>
 
 
     <!-- The maximum range of gamma adjustment possible using the screen
@@ -750,11 +750,6 @@
 
     <!-- True if the device supports Sustained Performance Mode. -->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
-
-    <!-- Enables or disables fading edges when marquee is enabled in TextView.
-         Off by default, since the framebuffer readback used to implement the
-         fading edges is prohibitively expensive on most GPUs. -->
-    <bool name="config_ui_enableFadingMarquee">true</bool>
 
     <!-- Whether or not to enable the lock screen entry point for the QR code scanner. -->
     <bool name="config_enableQrCodeScannerOnLockScreen">true</bool>
