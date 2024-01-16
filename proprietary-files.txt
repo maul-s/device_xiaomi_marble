@@ -2045,6 +2045,7 @@ vendor/lib/libstagefright_softomx.so
 vendor/lib/libvideotxr.so
 vendor/lib/qti.video.utils.videobufferlayout.so
 vendor/lib64/libEvrcSwCodec.so
+vendor/lib64/libstagefrighthw.so
 vendor/lib64/libQcelp13SwCodec.so
 vendor/lib64/libavservices_minijail_vendor.so
 vendor/lib64/libmm-omxcore.so
@@ -2178,6 +2179,7 @@ vendor/lib/libFlacSwDec.so
 vendor/lib/libdsd2pcm.so
 vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
+vendor/lib64/libOmxCore.so
 vendor/lib64/libFlacSwDec.so
 vendor/lib64/libdsd2pcm.so
 
