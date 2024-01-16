@@ -8,8 +8,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common PixelExperience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Voltage stuff.
+$(call inherit-product, vendor/voltage/config/common_full_phone.mk)
 
 # Inherit from marble device.
 $(call inherit-product, device/xiaomi/marble/device.mk)
@@ -26,7 +26,13 @@ TARGET_SUPPORTS_GOOGLE_RECORDER := true
 PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := marble
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := aosp_marble
+PRODUCT_NAME := voltage_marble
 
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Nuke AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
+# Gapps
+$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
