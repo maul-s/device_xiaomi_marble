@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/awaken_marble.mk
+    $(LOCAL_DIR)/voltage_marble.mk
 
 COMMON_LUNCH_CHOICES := \
-    awaken_marble-eng \
-    awaken_marble-userdebug \
-    awaken_marble-user
+    voltage_marble-eng \
+    voltage_marble-userdebug \
+    voltage_marble-user
