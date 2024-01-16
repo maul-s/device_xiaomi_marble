@@ -327,10 +327,6 @@ ro.surface_flinger.max_virtual_display_dimension=4096
 ro.vendor.all_modes.colorpick_adjust=true
 vendor.gralloc.disable_ubwc=0
 
-# HWUI
-debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=30
-
 # Refresh Rate
 ro.surface_flinger.set_display_power_timer_ms=1000
 ro.surface_flinger.set_idle_timer_ms=500
@@ -366,9 +362,6 @@ sys.haptic.intensityforkeyboard=true
 
 # Incremental
 ro.incremental.enable=yes
-
-# HWUI
-ro.hwui.render_ahead=10
 
 # LMK
 persist.sys.lmk.camera_minfree_levels=18432:0,23040:100,27648:200,64512:300,115712:800,216370:900
