@@ -20,11 +20,15 @@ package org.lineageos.settings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.hardware.display.DisplayManager;
 import android.util.Log;
 import android.os.IBinder;
 import android.view.Display.HdrCapabilities;
 import android.view.Display;
+import android.content.SharedPreferences;
+import android.os.SystemProperties;
+import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.camera.NfcCameraService;
 import org.lineageos.settings.display.ColorService;
@@ -46,6 +50,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, Intent intent) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        ThermalUtils.startService(context);
 
         Log.i(TAG, "Boot completed");
 
@@ -57,9 +62,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Refresh Rate
         RefreshUtils.initialize(context);
-
-        // Thermal Profiles
-        ThermalUtils.startService(context);
 
         // Pocket
         PocketService.startService(context);
