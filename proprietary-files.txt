@@ -2217,7 +2217,6 @@ vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/commonsysnodesconfigs.xml
 vendor/etc/perf/perfboostselection.xml
 vendor/etc/perf/thermal-boost.conf
-vendor/etc/perf/thermalbreakboostconfig.xml
 
 # Perf (system) - from LA.QSSI.14.0.r1
 system_ext/bin/perfservice|ee3aa094acc3a27b10a52a8c985edd8535d235a2
